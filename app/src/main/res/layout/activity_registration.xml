@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="limo.mylimo.RegistrationActivity"
+    android:background="@drawable/plan_background">
+
+    <RelativeLayout
+        android:id="@+id/rl_et_full_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="70dp">
+
+
+        <TextView
+            android:id="@+id/tv_urdu_pura_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/urdu_mobile_number"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:paddingTop="10dp"
+            android:text="@string/urdu_puraname"/>
+
+        <EditText
+            android:id="@+id/et_fullname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorWhite"
+            android:paddingLeft="10dp"
+            android:background="@null"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:hint="Full Name"
+            android:textSize="15sp"
+            android:textColorHint="@color/colorIOffWhite"
+            android:layout_toLeftOf="@id/tv_urdu_pura_name"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.1dp"
+            android:background="@color/colorWhite"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_et_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/rl_et_full_name"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/tv_urdu_email"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/urdu_mobile_number"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:paddingTop="10dp"
+            android:text="@string/urdu_email"/>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorWhite"
+            android:paddingLeft="10dp"
+            android:background="@null"
+            android:layout_marginTop="10dp"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:textSize="15sp"
+            android:textColorHint="@color/colorIOffWhite"
+            android:layout_toLeftOf="@id/tv_urdu_email"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.1dp"
+            android:background="@color/colorWhite"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_et_mobile_no"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/rl_et_email"
+        android:layout_marginTop="30dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_urdu_mobile_number"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/urdu_mobile_number"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:paddingTop="10dp"
+            android:text="@string/urdu_mobile_number"/>
+
+        <EditText
+            android:id="@+id/et_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorWhite"
+            android:paddingLeft="10dp"
+            android:background="@null"
+            android:layout_marginTop="10dp"
+            android:maxLength="11"
+            android:inputType="number"
+            android:focusable="false"
+            android:hint="Mobile No."
+            android:textColorHint="@color/colorIOffWhite"
+            android:layout_toLeftOf="@id/tv_urdu_mobile_number"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.1dp"
+            android:background="@color/colorWhite"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_et_cnic_no"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/rl_et_mobile_no"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/tv_urdu_cnic_number"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/urdu_mobile_number"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:textSize="15sp"
+            android:text="@string/urdu_cnic_number"/>
+
+        <EditText
+            android:id="@+id/et_cnic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorWhite"
+            android:paddingLeft="10dp"
+            android:background="@null"
+            android:layout_marginTop="10dp"
+            android:maxLength="13"
+            android:inputType="number"
+            android:hint="CNIC / Passport No."
+            android:textSize="15sp"
+            android:textColorHint="@color/colorIOffWhite"
+            android:layout_toLeftOf="@id/tv_urdu_cnic_number"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.1dp"
+            android:background="@color/colorWhite"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_register"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_press_stat"
+        android:layout_below="@+id/rl_et_cnic_no"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:textColor="@color/colorBlack"
+        android:text="Register"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_bar"
+        android:translationZ="@dimen/fab_margin"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

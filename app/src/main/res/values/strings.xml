@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">My Limo</string>
+
+    <string name="map_key">AIzaSyA1XqpHC4rDM3Dy7MZOt0LUZOpvBOCpIUc</string>
+    <string name="place_key">AIzaSyA1XqpHC4rDM3Dy7MZOt0LUZOpvBOCpIUc</string>
+
+    <string-array name="citiesname">
+        <item>Select</item>
+        <item>Karachi</item>
+        <item>Lahore</item>
+        <item>Islamabad</item>
+        <item>Hyderabad</item>
+        <item>Quetta</item>
+        <item>Faisalabad</item>
+    </string-array>
+
+    <string-array name="emptyselect">
+        <item>Select</item>
+    </string-array>
+
+    <string-array name="timing_slots">
+        <item>Select</item>
+        <item>11:30 am</item>
+        <item>3:00 pm</item>
+        <item>7:40 pm</item>
+        <item>10:25 pm</item>
+    </string-array>
+
+    <string-array name="from_karachi">
+        <item>Select</item>
+        <item>Hyderabad</item>
+        <item>Quetta</item>
+    </string-array>
+
+    <string-array name="from_lahore">
+        <item>Select</item>
+        <item>Islamabad</item>
+        <item>Faisalabad</item>
+    </string-array>
+
+    <string-array name="from_islamabad">
+        <item>Select</item>
+        <item>Lahore</item>
+    </string-array>
+
+    <string-array name="from_hydrabad">
+        <item>Select</item>
+        <item>Karachi</item>
+    </string-array>
+
+    <string-array name="from_faisalabad">
+        <item>Select</item>
+        <item>Lahore</item>
+    </string-array>
+
+    <string-array name="from_quetta">
+        <item>Select</item>
+        <item>Karachi</item>
+    </string-array>
+
+
+    <string-array name="cartype">
+        <item>Select</item>
+        <item>Business</item>
+        <item>Economy</item>
+    </string-array>
+
+
+    <string-array name="seates">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="seatesForQuetyKarachi">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="carttype_when_quetta">
+        <item>Business</item>
+    </string-array>
+
+    <string name="title_activity_my_login">MyLoginActivity</string>
+
+    <string name="tasdeeq_urdu_text">تصدیق کے لیےانتظارفرمائیں</string>
+    <string name="urdu_mobile_number">موبائل نمبر</string>
+    <string name="urdu_puraname">پورا نام</string>
+    <string name="urdu_khofiacode">خفیہ کوڈ</string>
+    <string name="urdu_mobile_number_darj_kejie">موبائل نمبردرج کیجیئے</string>
+    <string name="urdu_email">ای میل</string>
+    <string name="urdu_cnic_number">شناختی کارڈ یا پاسپورٹ نمبر</string>
+
+
+    <string name="startpecefullift">Start a Peacefull Life With</string>
+    <string name="descriptiontext">The MyLimo Company is the largest, most impressive, creative and forward-thinking traveling service provider company in Pakistan. At the core of your business philosophy is a commitment to extraordinary service, honesty, and clear communication.
+In brief. You will feel the difference as soon as you walk into our offices, speak with us on the telephone, or meet us in person. Our experienced broker agents, qualified agents, and a lot of the time support staff are friendly, knowledgeable, and very hard-working. All of us incorporate the best in good old-fashioned customer support with the most recent and best in technology and web-affiliated marketing.</string>
+
+    <string name="ourmission">OUR MISSION</string>
+    <string name="ouragents">OUR AGENTS</string>
+    <string name="ourmissiondescrption">Our mission is to provide the highest level of service to our clients to help them when traveling out city.</string>
+    <string name="ouragentdescription">Our Agents are all long time Whistler locals and are experts in both the area and the travelling market.</string>
+    <string name="ourvision">OUR VISION</string>
+    <string name="ourvisiondescription">MyLimo is a regional, full-service providng quality of service for travelling from your current location to next city you want to go through maps guide.</string>
+    <string name="value">VALUES</string>
+    <string name="valuedescription">We always do what is right, and ethical. We share appropriate information in an honest. We are positive and enthusiastic.</string>
+
+
+</resources>

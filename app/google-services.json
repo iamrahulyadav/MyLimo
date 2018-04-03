@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "616264935974",
+    "firebase_url": "https://mylimouser.firebaseio.com",
+    "project_id": "mylimouser",
+    "storage_bucket": "mylimouser.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616264935974:android:0099f42160615110",
+        "android_client_info": {
+          "package_name": "limo.mylimo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616264935974-g820d4oeci0kbumgl3padpknpnp89b4s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "limo.mylimo",
+            "certificate_hash": "5f57386e761baeafb52c64868974b79af2d45a21"
+          }
+        },
+        {
+          "client_id": "616264935974-91jv5mh811ccltqklt21uvtmlmlnvp0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1XqpHC4rDM3Dy7MZOt0LUZOpvBOCpIUc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616264935974-91jv5mh811ccltqklt21uvtmlmlnvp0o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

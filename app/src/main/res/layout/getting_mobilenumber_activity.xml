@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GettingMobileNumberActivity"
+    android:background="@drawable/plan_background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_mobile_number_darj_kijeye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite"
+            android:layout_centerInParent="true"
+            android:src="@drawable/urdu_mobile_number"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:paddingTop="10dp"
+            android:text="@string/urdu_mobile_number_darj_kejie"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Your Mobile Number"
+            android:textColor="@color/colorWhite"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="89dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_et_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:id="@+id/tv_mobile_number"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/urdu_mobile_number"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:paddingTop="10dp"
+            android:text="@string/urdu_mobile_number"/>
+
+        <EditText
+            android:id="@+id/et_mobile_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:background="@null"
+            android:inputType="number"
+            android:maxLength="11"
+            android:hint="11 digit mobile number"
+            android:textColorHint="@color/colorIOffWhite"
+            android:textSize="12dp"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@id/tv_mobile_number"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.1dp"
+            android:background="@color/colorWhite"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_below="@+id/rl_et_mobile"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:text="Submit"
+        android:textColor="@color/colorBlack"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:textSize="12dp"
+        android:background="@drawable/button_press_stat"
+        android:visibility="visible"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_bar"
+        android:visibility="gone"/>
+
+
+
+
+
+</RelativeLayout>

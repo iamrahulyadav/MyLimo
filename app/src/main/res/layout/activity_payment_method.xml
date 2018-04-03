@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="limo.mylimo.PaymentMethod"
+    android:background="@drawable/plan_background">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please Select Payment Method"
+        android:textSize="20sp"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"/>
+
+   <!-- <android.support.v7.widget.SwitchCompat
+        android:id="@+id/switch_item"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:checked="true"
+        android:longClickable="false"
+        android:textOff="OFF"
+        android:textOn="ON"
+        app:switchTextAppearance="@style/BrandedSwitch.text"
+        app:theme="@style/BrandedSwitch.control"
+        app:showText="true" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+    <CheckBox
+        android:id="@+id/cb_cas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/WhiteCheck"
+        android:text="Cash"
+        android:checked="true"
+        android:clickable="false"
+        android:textColor="@color/colorWhite"
+        android:buttonTint="@color/colorWhite"/>
+
+    <CheckBox
+        android:id="@+id/cb_creditcard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/WhiteCheck"
+        android:text="Credit / Debit Card"
+        android:checked="false"
+        android:clickable="false"
+        android:textColor="@color/colorWhite"
+        android:buttonTint="@color/colorWhite"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

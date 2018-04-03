@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="limo.mylimo.Feedback"
+    android:background="@drawable/plan_background">
+
+
+    <EditText
+        android:id="@+id/et_description"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:hint="Description"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="top"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorIOffWhite"
+        android:background="@drawable/feedback_et_background"/>
+
+    <com.hsalf.smilerating.SmileRating
+        android:layout_below="@+id/et_description"
+        android:id="@+id/smile_rating"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textNonSelectionColor="@color/buttonColor"
+        app:textSelectionColor="@color/colorWhite"
+        app:placeHolderSmileColor="@color/buttonColor"
+        app:normalColor="@color/buttonColor"
+        app:drawingColor="@color/colorWhite"/>
+
+
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_below="@+id/smile_rating"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:textColor="@color/colorWhite"
+        android:text="Submitt"
+        android:textAllCaps="false"
+        android:background="@drawable/button_press_stat"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_bar"
+        android:translationZ="@dimen/fab_margin"
+        android:visibility="gone"/>
+
+</RelativeLayout>

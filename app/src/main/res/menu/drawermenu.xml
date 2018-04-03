@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/my_id">
+
+        <item
+            android:title="Dashboard"
+            android:icon="@drawable/dashboard"
+            android:id="@+id/nav_item_home"/>
+
+        <item
+            android:title="My Bookings"
+            android:icon="@drawable/my_orders"
+            android:id="@+id/nav_item_my_orders"/>
+
+        <item
+            android:title="About Us"
+            android:icon="@drawable/about_us"
+            android:id="@+id/nav_item_about"/>
+        <item
+            android:title="Payments Method"
+            android:icon="@drawable/cash_icon"
+            android:id="@+id/nav_payment_method"/>
+
+        <item
+            android:title="Contact Us"
+            android:icon="@drawable/contact_uc"
+            android:id="@+id/nav_item_contact_us"/>
+<!--
+        <item
+            android:title="Feedback"
+            android:icon="@drawable/feedback_icon"
+            android:id="@+id/feedback"/>-->
+
+        </group>
+
+
+   </menu>

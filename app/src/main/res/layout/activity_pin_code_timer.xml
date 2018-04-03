@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="limo.mylimo.PinCodeTimerActivity"
+    android:background="@drawable/plan_background">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wait While We Verify"
+        android:textColor="@color/colorIOffWhite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_urdu_tasdeeq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tasdeeq_urdu_text"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:textSize="25sp"/>
+
+  <!--  <ImageView
+        android:layout_width="300dp"
+        android:layout_height="190dp"
+        android:src="@drawable/urdu_tasdeeq"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>-->
+
+    <RelativeLayout
+        android:id="@+id/rl_timeer_circle"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/timer_circule">
+
+        <limo.mylimo.CircularSeekBar
+            android:id="@+id/circularSeekBar1"
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="75dp"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/rl_timeer_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true">
+        <EditText
+            android:id="@+id/et_firt_digit"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:maxLength="1"
+            android:gravity="center"
+            android:cursorVisible="false"
+            android:textColor="@color/colorWhite"
+            android:backgroundTint="@color/colorWhite"/>
+        <EditText
+            android:id="@+id/et_second_digit"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:textColor="@color/colorWhite"
+            android:inputType="number"
+            android:gravity="center"
+            android:maxLength="1"
+            android:cursorVisible="false"
+            android:backgroundTint="@color/colorWhite"/>
+        <EditText
+            android:id="@+id/et_thirld_digit"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:maxLength="1"
+            android:gravity="center"
+            android:cursorVisible="false"
+            android:textColor="@color/colorWhite"
+            android:backgroundTint="@color/colorWhite"/>
+        <EditText
+            android:id="@+id/et_fourth_digit"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:maxLength="1"
+            android:gravity="center"
+            android:cursorVisible="false"
+            android:textColor="@color/colorWhite"
+            android:backgroundTint="@color/colorWhite"/>
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_bar"
+        android:translationZ="@dimen/fab_margin"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

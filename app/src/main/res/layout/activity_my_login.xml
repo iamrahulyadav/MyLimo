@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="limo.mylimo.MyLoginActivity"
+    android:background="@drawable/plan_background">
+
+    <ImageView
+        android:id="@+id/iv_car_logo"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/car_logo"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_et_mobile"
+        android:layout_below="@+id/iv_car_logo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:id="@+id/tv_mobile_number"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/urdu_mobile_number"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:paddingTop="10dp"
+            android:text="@string/urdu_mobile_number"/>
+
+
+        <EditText
+            android:id="@+id/et_mobile_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:background="@null"
+            android:inputType="number"
+            android:hint="11 digit mobile number"
+            android:textColorHint="@color/colorIOffWhite"
+            android:textSize="12dp"
+            android:maxLength="11"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@id/tv_mobile_number"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.1dp"
+            android:background="@color/colorWhite"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_et_pincode"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/rl_et_mobile"
+        android:layout_marginTop="15dp">
+
+
+        <TextView
+            android:id="@+id/tv_khofiya_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/urdu_mobile_number"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:paddingTop="10dp"
+            android:text="@string/urdu_khofiacode"/>
+
+
+        <EditText
+            android:id="@+id/et_pincode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_khofiya_code"
+            android:layout_alignBottom="@+id/tv_khofiya_code"
+            android:layout_toEndOf="@+id/tv_khofiya_code"
+            android:layout_toRightOf="@+id/tv_khofiya_code"
+            android:background="@null"
+            android:gravity="center"
+            android:hint="Pin Code"
+            android:inputType="numberPassword"
+            android:maxLength="4"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorIOffWhite"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.1dp"
+            android:background="@color/colorWhite"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_below="@+id/rl_et_pincode"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:text="Login"
+        android:textColor="@color/colorBlack"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:textSize="12dp"
+        android:background="@drawable/button_press_stat"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_below="@+id/bt_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Pin Code?"
+        android:textColor="@color/colorWhite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"/>
+
+
+    <Button
+        android:id="@+id/bt_register"
+        android:layout_below="@+id/tv_forgot_password"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:text="Register"
+        android:textColor="@color/colorBlack"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:textSize="12dp"
+        android:textAllCaps="false"
+        android:background="@drawable/button_press_stat"
+        android:visibility="visible"/>
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_bar"
+        android:translationZ="@dimen/fab_margin"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>
