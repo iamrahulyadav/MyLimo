@@ -5,8 +5,10 @@ package limo.mylimo.Constant;
  */
 
 public class APIURLs {
+    //http://www.ranglerz.net/mylimo/api/register_user_sms
 
-    public static final String DOMAIN_URL = "http://www.ranglerz.net/mylimo/api/";
+    //public static final String DOMAIN_URL = "http://www.ranglerz.net/mylimo/api/";
+    public static final String DOMAIN_URL = "http://www.mylimo.pk/admin/api/";
     public static final String loginURL = DOMAIN_URL+"login";
     public static final String regitrationURL = DOMAIN_URL+"register";
     public static final String userHistory = DOMAIN_URL+"perticularHistory";

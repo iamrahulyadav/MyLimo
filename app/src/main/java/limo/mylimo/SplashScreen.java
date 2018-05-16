@@ -24,8 +24,6 @@ public class SplashScreen extends AppCompatActivity {
         useHandler();
        // tv_please_wait = (TextView) findViewById(R.id.tv_please_wait);
 
-
-
     }
 
     //Thread for starting mainActivity
@@ -45,22 +43,36 @@ public class SplashScreen extends AppCompatActivity {
             }
             if (timer == 0) {
 
-                SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+                SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
                 if (sharedPreferences!=null){
                     String pin =  sharedPreferences.getString("pincode", "null");
+                    Log.e("TAG", "the pin is: " + pin);
                     if (!pin.equals("null")){
 
-                        Log.e("TAg", "the pin code is: " + pin);
-                        Intent i = new Intent(SplashScreen.this, OrderBookingScreen.class);
-                        startActivity(i);
-                        finish();
+                        SharedPreferences sharedPreferencesForFeedback = getSharedPreferences("givefeedback", 0);
+                        String orderId = sharedPreferencesForFeedback.getString("order_id", "-1");
+
+
+                        if (!orderId.equals("-1")) {
+
+                            Intent i = new Intent(SplashScreen.this, Feedback.class);
+                            i.putExtra("orderid", orderId);
+                            startActivity(i);
+                            finish();
+
+                        }else {
+                            Log.e("TAg", "the pin code is: " + pin);
+                            Intent i = new Intent(SplashScreen.this, OrderBookingScreen.class);
+                            startActivity(i);
+                            finish();
+                        }
 
                     }
                     else {
 
 
                         Intent i = new Intent(SplashScreen.this, MyLoginActivity.class);
-                        //Intent i = new Intent(SplashScreen.this, LoginActivity.class);
+                        //Intent i = new Intent(SplashScreen.this, OrderBookingScreen.class);
                         //Intent i = new Intent(SplashScreen.this, GettingMobileNumberActivity.class);
                         // Intent i = new Intent(SplashScreen.this, FranchiserRegistration.class);
 

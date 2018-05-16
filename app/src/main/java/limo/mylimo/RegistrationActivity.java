@@ -181,7 +181,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         Toast.makeText(RegistrationActivity.this, message, Toast.LENGTH_SHORT).show();
 
                         //adding data
-                        SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+                        SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("user_id", user_id);
                         editor.putString("fullname", mFullname);

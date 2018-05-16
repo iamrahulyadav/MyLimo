@@ -164,7 +164,7 @@ public class  BaseActvitvityForDrawer extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+        SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
        String fullname  = sharedPreferences.getString("fullname", null);
         navUsername.setTitle(fullname);
 

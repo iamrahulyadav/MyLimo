@@ -49,6 +49,8 @@ public class MyHistoryScreen extends AppCompatActivity {
     ArrayList<HistoryData> historyData;
     HistoryDataAdapter historyDataAdapter;
 
+    TextView tv_no_history;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +59,7 @@ public class MyHistoryScreen extends AppCompatActivity {
 
         init();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+        SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
         String userId = sharedPreferences.getString("user_id", null);
 
         gettingMyOrderHistoryFromServer(userId);
@@ -69,6 +71,7 @@ public class MyHistoryScreen extends AppCompatActivity {
         linearLayoutManager = new LinearLayoutManager(getApplicationContext() , LinearLayoutManager.VERTICAL, false);
         rv_order_history.setLayoutManager(linearLayoutManager);
 
+        tv_no_history = (TextView) findViewById(R.id.tv_no_history);
 
         progress_bar = (ProgressBar) findViewById(R.id.progress_bar);
         historyData = new ArrayList<>();
@@ -137,25 +140,20 @@ public class MyHistoryScreen extends AppCompatActivity {
 
                             historyData.add(new HistoryData(order_id, pickup_lat, pickup_lng, pickup_detail, destination_lat, destination_lng, destination_detail,
                                     pickup_city, destination_city, car_type, seats, date, day+" "+time, price, user_id, fullname, email, phone, pincode, pincode));
-
                         }
-
                         //reversing array list to get recent on top
                         Collections.reverse(historyData);
                         historyDataAdapter = new HistoryDataAdapter(MyHistoryScreen.this, historyData);
                         rv_order_history.setAdapter(historyDataAdapter);
 
-
                         Log.e("TAG", "the size of history record: " + historyData.size());
-
-
 
 
                     } else {
 
                         String errorMsg = jObj.getString("error_message");
-
                         Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
+                        tv_no_history.setVisibility(View.VISIBLE);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

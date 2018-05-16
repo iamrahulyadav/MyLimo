@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Random;
+
 import limo.mylimo.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -25,6 +29,10 @@ public class LoginActivity extends AppCompatActivity {
         init();
         openingSignUpScreen();
         loginClick();
+
+
+
+
     }
 
     public void init(){
@@ -68,4 +76,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onResume();
         overridePendingTransition(R.anim.left_to_right, R.anim.left_to_right);
     }
+
+
 }

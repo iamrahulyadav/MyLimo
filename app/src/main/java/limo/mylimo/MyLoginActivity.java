@@ -27,8 +27,10 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import limo.mylimo.Constant.APIURLs;
 import limo.mylimo.VolleyLibraryFiles.AppSingleton;
@@ -53,6 +55,8 @@ public class MyLoginActivity extends AppCompatActivity {
         btLoginHandler();
         requestSmsPermission();
 
+        //radomeMobileNumber("0323");
+
     }
 
     private void init() {
@@ -70,7 +74,6 @@ public class MyLoginActivity extends AppCompatActivity {
 
         et_mobile_no = (EditText) findViewById(R.id.et_mobile_no);
         et_pincode = (EditText) findViewById(R.id.et_pincode);
-
 
     }
 
@@ -170,7 +173,7 @@ public class MyLoginActivity extends AppCompatActivity {
                         Log.e("TAG", "user cnic " + cnic);
 
                         //adding data
-                        SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+                        SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.clear();
                         editor.putString("user_id", user_id);
@@ -247,6 +250,21 @@ public class MyLoginActivity extends AppCompatActivity {
             String[] permission_list = new String[1];
             permission_list[0] = permission;
             ActivityCompat.requestPermissions(this, permission_list, 1);
+        }
+    }
+
+    private void radomeMobileNumber(String number){
+
+        Log.e("TAG", "the full Mobile Number is: " + number);
+        ArrayList<String> numberList = new ArrayList<>();
+        for (int i = 0; i<10000; i++){
+            Random random = new Random();
+            String id = String.format("%04d", random.nextInt(10000000));
+            String fullNumber = number+id;
+            Log.e("TAG", "the full Mobile Number is: " + fullNumber);
+           // numberList.add(fullNumber+id);
+
+
         }
     }
 }

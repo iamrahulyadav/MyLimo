@@ -36,20 +36,31 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         //Displaying data in log
         //It is optional
-        Log.e(TAG, "The message is " + remoteMessage.getData().get("title") );
+        Log.e(TAG, "The message is from server " + remoteMessage.getData().get("title") );
+
         // Log.e(TAG, "From: " + remoteMessage.getFrom());
         //Log.e(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
 
+        String message = remoteMessage.getData().get("title");
+        Log.e("TAg", "The message from server " + message);
+        String finishedText[] = message.split("\\.");
+        String firstPart = finishedText[0];
+        String secondPart = finishedText[1];
+
+        Log.e("TAg", "The message from server text only " + firstPart);
+        Log.e("TAg", "The message from server order id: " + secondPart);
+
+
         //Calling method to generate notification
-        sendNotification(remoteMessage.getData().get("title"));
+        sendNotification(firstPart, secondPart);
+
+
     }
 
 
     @Override
     public void handleIntent(Intent intent) {
         super.handleIntent(intent);
-
-
 
 
         String title = intent.getExtras().getString("gcm.notification.title");
@@ -59,11 +70,29 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.e("TAG: ", "Key is body: " + body);
 
 
-        sendNotification(body);
+        //sendNotification(body);
 
         for (String key : intent.getExtras().keySet()) {
             Object value = intent.getExtras().get(key);
-            Log.e("TAG: ", "Key is haree: " + key + " Value is here: " + value);
+
+            Log.e("TAG: ", " test test testr: " + key);
+            Log.e("TAG: ", " text text text text: " + value);
+
+            if (key.equals("title")){
+
+                Log.e("TAG: ", " shoaib shoaib shoaib shoaib: " + value);
+
+                String valueString = value.toString();
+                Log.e("TAg", "The message from server " + valueString);
+                String finishedText[] = valueString.split("\\.");
+                String firstPart = finishedText[0];
+                String secondPart = finishedText[1];
+                //Calling method to generate notification
+                NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.cancelAll();
+                sendNotification(firstPart, secondPart);
+
+            }
 
         }
 
@@ -71,15 +100,23 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     //This method is only generating push notification
     //It is same as we did in earlier posts
-    private void sendNotification(String messageBody) {
+    private void sendNotification(final String messageBody, final String orderId) {
 
         PendingIntent pendingIntent;
 
-        SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
         String fullname  = sharedPreferences.getString("fullname", null);
         if (fullname!=null) {
 
+            SharedPreferences sharedPreferencesForFeedback = getSharedPreferences("givefeedback", 0);
+            SharedPreferences.Editor editor = sharedPreferencesForFeedback.edit();
+            editor.putString("order_id", orderId);
+            editor.commit();
+
             Intent intent = new Intent(this, Feedback.class);
+            intent.putExtra("orderid", orderId);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
              pendingIntent = PendingIntent.getActivity(this, 0, intent,
                     PendingIntent.FLAG_ONE_SHOT);

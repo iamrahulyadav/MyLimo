@@ -50,6 +50,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_pickup_city"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
@@ -130,8 +131,8 @@
 
                <ImageView
                    android:id="@+id/iv_search_pickup"
-                   android:layout_width="22dp"
-                   android:layout_height="20dp"
+                   android:layout_width="32dp"
+                   android:layout_height="30dp"
                    android:src="@drawable/search_icon"/>
 
                 <EditText
@@ -188,6 +189,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_destination_city"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
@@ -269,8 +271,8 @@
 
                 <ImageView
                     android:id="@+id/iv_search_dropoff"
-                    android:layout_width="22dp"
-                    android:layout_height="20dp"
+                    android:layout_width="32dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/search_icon"/>
 
                 <EditText
@@ -329,6 +331,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_car_type"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
@@ -411,6 +414,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/ll_seats_selection"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -494,78 +498,6 @@
     </RelativeLayout>
 
 
-    <LinearLayout
-        android:id="@+id/ll_time_slot"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/rl_seatsbooking"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:id="@+id/tv_time_slopts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Select Time"
-            android:textColor="@color/colorWhite"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1.4"
-            android:textSize="18sp"/>
-
-        <RelativeLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@id/tv_picup_location"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:background="@color/colorWhite">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_centerInParent="true"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@color/colorBlack"
-                    android:layout_weight="1"/>
-
-                <Spinner
-                    android:id="@+id/sp_time_slots"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_weight="0.5"
-                    android:background="@null"
-                    android:textColor="@color/colorBlack" />
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorBlack"
-                    android:layout_marginRight="15dp"/>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/ll_date_slot"
@@ -575,7 +507,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
-            android:layout_below="@+id/ll_time_slot"
+            android:layout_below="@+id/rl_seatsbooking"
             android:gravity="center_vertical">
 
             <TextView
@@ -601,6 +533,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/ll_date_selection"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -638,9 +571,81 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/ll_time_slot"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/ll_date_slot"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_time_slopts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Time"
+                android:textColor="@color/colorWhite"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1.4"
+                android:textSize="18sp"/>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/tv_picup_location"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:background="@color/colorWhite">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@color/colorBlack"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/tv_time_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Select"
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center_horizontal"/>
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorBlack"
+                        android:layout_marginRight="15dp"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
     <Button
         android:id="@+id/bt_fare_estimate"
-        android:layout_below="@+id/ll_date_slot"
+        android:layout_below="@+id/ll_time_slot"
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_marginTop="25dp"

@@ -3,6 +3,7 @@ package limo.mylimo;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +17,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.LoginFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -36,6 +38,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -78,10 +81,13 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
     ImageView iv_tic;
 
     TextView tv_date_text;
+    TextView tv_time_text;
 
     // RelativeLayout rl_select_seats;
     // TextView tv_select_seat;
     LinearLayout ll_car_checkbox;
+
+    LinearLayout ll_pickup_city, ll_destination_city,ll_car_type, ll_seats_selection, ll_date_selection;
 
     RelativeLayout rl_select_car_type;
 
@@ -101,7 +107,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
     private LinearLayout ll_full_seat, ll_seats;
 
     private Spinner sp_pickup, sp_cartype, sp_seates, sp_dropoff ;
-    private Spinner sp_time_slots;
+   // private Spinner sp_time_slots;
     private EditText et_detail_pickup, et_detail_dropoff;
     private Button bt_booknow;
     private ProgressBar progress_bar;
@@ -143,6 +149,11 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
 
         selectDate();
 
+        openSpinerForPickupCity();
+        openSpinerForDestinationCity();
+        openSpinerForCarType();
+        openSpinerForSeats();
+        showDateDialog();
     }
 
     private void init() {
@@ -206,11 +217,19 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
         bt_booknow = (Button) findViewById(R.id.bt_booknow);
         progress_bar = (ProgressBar) findViewById(R.id.progress_bar);
 
-        sp_time_slots = (Spinner) findViewById(R.id.sp_time_slots);
+       /* sp_time_slots = (Spinner) findViewById(R.id.sp_time_slots);
         ArrayAdapter adapterTimeSlots = ArrayAdapter.createFromResource(this,
                 R.array.timing_slots, R.layout.spinner_item);
         adapterTimeSlots.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        sp_time_slots.setAdapter(adapterTimeSlots);
+        sp_time_slots.setAdapter(adapterTimeSlots);*/
+
+        tv_time_text = (TextView) findViewById(R.id.tv_time_text);
+
+        ll_pickup_city = (LinearLayout) findViewById(R.id.ll_pickup_city);
+        ll_destination_city = (LinearLayout) findViewById(R.id.ll_destination_city);
+        ll_car_type = (LinearLayout) findViewById(R.id.ll_car_type);
+        ll_seats_selection = (LinearLayout) findViewById(R.id.ll_seats_selection);
+        ll_date_selection = (LinearLayout) findViewById(R.id.ll_date_selection);
 
 
     }
@@ -589,7 +608,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                 String spDropoff = sp_dropoff.getSelectedItem().toString();
                 String spCartype = sp_cartype.getSelectedItem().toString();
                 String spSeates = sp_seates.getSelectedItem().toString();
-                String spStimeSlots = sp_time_slots.getSelectedItem().toString();
+              //  String spStimeSlots = sp_time_slots.getSelectedItem().toString();
 
 
              /*   if (et_detail_pickup.length()==0){
@@ -626,10 +645,10 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                     sp_cartype.startAnimation(animShake);
                 } else if (iv_tic.getVisibility() == view.GONE && spSeates.equals("0")) {
                     ll_full_seat.startAnimation(animShake);
-                } else if (spStimeSlots.equals("Select")) {
+                } /*else if (spStimeSlots.equals("Select")) {
                     Toast.makeText(OrderBookingScreen.this, "Please Select Time Slot", Toast.LENGTH_SHORT).show();
                     sp_time_slots.startAnimation(animShake);
-                }else if (mSelectedDate.length()<1){
+                }*/else if (mSelectedDate.length()<1){
                     Toast.makeText(OrderBookingScreen.this, "Please Booking Date", Toast.LENGTH_SHORT).show();
                     tv_date_text.startAnimation(animShake);
                 }
@@ -657,7 +676,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                         }
 
 
-                        SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+                        SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
 
                         String userId = sharedPreferences.getString("user_id", null);
                         String fullname = sharedPreferences.getString("fullname", null);
@@ -687,7 +706,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                         Log.e("TAG", "the to city: " + spDropoff);
                         Log.e("TAG", "the car type: " + spCartype);
                         Log.e("TAG", "the seats: " + spSeates);
-                        Log.e("TAG", "the Time Slot " + spStimeSlots);
+                       // Log.e("TAG", "the Time Slot " + spStimeSlots);
 
 
                         String textToSend = "User Full Name: " + fullname
@@ -711,9 +730,11 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                         String mFareEstimation = FareEstimation(spPickCity, spDropoff, spCartype, spSeates);
 
 
-                        String dataTime = mSelectedDate+" " + spStimeSlots;
+                        confirmatinDialog(userId, picLat, picLng, detailPickup, desLat, desLng, detailDropoff, spPickCity, spDropoff, spCartype, spSeates, mFareEstimation, "", mSelectedDate);
+
+                       /* String dataTime = mSelectedDate+" " + spStimeSlots;
                         //checkig if selected time and date is past
-                        boolean isGrater = isTimeGrater(dataTime);
+                       boolean isGrater = isTimeGrater(dataTime);
 
                         if (isGrater) {
 
@@ -722,10 +743,10 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                             confirmatinDialog(userId, picLat, picLng, detailPickup, desLat, desLng, detailDropoff, spPickCity, spDropoff, spCartype, spSeates, mFareEstimation, spStimeSlots, mSelectedDate);
                         }
                         else {
-                            sp_time_slots.startAnimation(animShake);
+                          //  sp_time_slots.startAnimation(animShake);
                             tv_date_text.startAnimation(animShake);
                             Toast.makeText(OrderBookingScreen.this, "Your Selected Time or Date Has been Passed", Toast.LENGTH_LONG).show();
-                        }
+                        }*/
 
                     }
                 }
@@ -780,7 +801,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
             TextView tv_description = (TextView) exitDialog.findViewById(R.id.tv_description);
 
             tv_dialog_title.setText("Ride Submited Successfully");
-            SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+            SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
             String fullname = sharedPreferences.getString("fullname", null);
             tv_description.setText("Thank you " + fullname + "! Your Order Has been submitted successfully, Our Agent Will Contact you soon");
             Button btExit = (Button) exitDialog.findViewById(R.id.bt_exit);
@@ -836,7 +857,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                             TextView tv_description = (TextView) orderSumitedDialog.findViewById(R.id.tv_description);
 
                             tv_dialog_title.setText("Order Submited Successfully");
-                            SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+                            SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
                             String fullname = sharedPreferences.getString("fullname", null);
                             tv_description.setText("Thank you " + fullname + "! Your ride has been submitted successfully, Our agent will contact you soon. You can also cancel ride within 30 minutes.");
                             tv_description.setTextSize(15);
@@ -861,8 +882,33 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
 
                     } else {
 
-                        String errorMsg = jObj.getString("error_message");
+                        String errorMsg = jObj.getString("msg");
+                        if(errorMsg.equals("User Not Exist")){
 
+                            AlertDialog.Builder alert = new AlertDialog.Builder(OrderBookingScreen.this);
+                            alert.setTitle("Alert");
+                            alert.setMessage("The user has been blocked");
+                            alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    dialogInterface.dismiss();
+                                    SharedPreferences sharedPreferences = getSharedPreferences("mylimouser", 0);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.clear();
+                                    editor.commit();
+
+                                    finish();
+                                    Intent login = new Intent(OrderBookingScreen.this, MyLoginActivity.class);
+                                    startActivity(login);
+
+                                }
+                            });
+
+
+                            alert.setCancelable(false);
+                            alert.show();
+                        }
                         Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
@@ -1245,4 +1291,82 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
 
    }
 
+
+   private void openSpinerForPickupCity(){
+
+       ll_pickup_city.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+               sp_pickup.performClick();
+           }
+       });
+   }
+
+
+    private void openSpinerForDestinationCity(){
+
+        ll_destination_city.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                sp_dropoff.performClick();
+            }
+        });
+    }
+
+    private void openSpinerForCarType(){
+
+        ll_car_type.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                sp_cartype.performClick();
+            }
+        });
+    }
+
+    private void openSpinerForSeats(){
+
+        ll_seats_selection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                sp_seates.performClick();
+            }
+        });
+    }
+
+    private void showDateDialog(){
+
+        ll_date_selection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                          int dayOfMonth) {
+
+                        myCalendar.set(Calendar.YEAR, year);
+                        myCalendar.set(Calendar.MONTH, monthOfYear);
+                        myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                        //preventing user to select future date
+                        view.setEnabled(true);
+
+                        updateLabel();
+                    }
+                };
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(OrderBookingScreen.this,  date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH));
+
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000-1);
+
+                datePickerDialog.show();
+            }
+        });
+    }
 }

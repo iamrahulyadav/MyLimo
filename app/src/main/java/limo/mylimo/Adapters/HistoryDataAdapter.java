@@ -194,14 +194,11 @@ public class HistoryDataAdapter extends RecyclerView.Adapter<HistoryDataAdapter.
 
                     exitScreenAlert(activity, holder.tv_order_id.getText().toString(), holder.progress_bar, position);
 
-
                 }
             });
 
         }
-
     }
-
 
     @Override
     public int getItemCount() {
@@ -214,9 +211,6 @@ public class HistoryDataAdapter extends RecyclerView.Adapter<HistoryDataAdapter.
 
         return (position == userHisotry.size() - 1 && isLoadingAdded) ? LOADING : ITEM;
     }
-
-
-
 
 
     public String timeFormteIn12Hr(String time){
@@ -265,7 +259,9 @@ public class HistoryDataAdapter extends RecyclerView.Adapter<HistoryDataAdapter.
             public void onClick(View view) {
 
                 confirmationDiloag.dismiss();
-                gettingMyOrderHistoryFromServer(orderID, progressBar, activity, itemPosition);
+                Log.e("TAG", "the order id is salman: " + orderID);
+
+                orderCancelation(orderID, progressBar, activity, itemPosition);
 
 
             }
@@ -276,7 +272,7 @@ public class HistoryDataAdapter extends RecyclerView.Adapter<HistoryDataAdapter.
 
 
     //order booking server
-    private void gettingMyOrderHistoryFromServer(final String orderId, final ProgressBar progressBar, final Activity activity, final int itemPosition){
+    private void orderCancelation(final String orderId, final ProgressBar progressBar, final Activity activity, final int itemPosition){
 
 
         // Tag used to cancel the request
@@ -299,11 +295,11 @@ public class HistoryDataAdapter extends RecyclerView.Adapter<HistoryDataAdapter.
                     if (!error) {
 
                         String message = jObj.getString("msg");
-                        if (message.equals("Order Has Been Canceled.")){
+                        if (message.equals("Order Has Been Cancelled.")){
 
                             userHisotry.remove(itemPosition);
                             notifyDataSetChanged();
-                            Toast.makeText(activity, "Order Has been Cancelled", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "Order Has been Cancelled.", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -328,17 +324,17 @@ public class HistoryDataAdapter extends RecyclerView.Adapter<HistoryDataAdapter.
                 //hideDialog();
                 progressBar.setVisibility(View.GONE);
             }
-        }) {
-
-
+        }
+        )
+        {
 
             @Override
             protected Map<String, String> getParams() {
                 // Posting params to register url
 
-
                 Map<String, String> params = new HashMap<String, String>();
 
+                Log.e("TAG", "the order id is yasir: " + orderId);
                 params.put("order_id", orderId);
 
                 return params;
