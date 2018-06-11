@@ -107,7 +107,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
     private LinearLayout ll_full_seat, ll_seats;
 
     private Spinner sp_pickup, sp_cartype, sp_seates, sp_dropoff ;
-   // private Spinner sp_time_slots;
+    // private Spinner sp_time_slots;
     private EditText et_detail_pickup, et_detail_dropoff;
     private Button bt_booknow;
     private ProgressBar progress_bar;
@@ -288,6 +288,19 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                     adapterPickup.setDropDownViewResource(R.layout.spinner_dropdown_item);
                     sp_dropoff.setAdapter(adapterPickup);
                 }
+                //
+                if (selectedCity.equals("Loralai") || selectedCity.equals("Zhob") || selectedCity.equals("Qila Saifullah")
+                        || selectedCity.equals("Chaman") || selectedCity.equals("Kuchlak") || selectedCity.equals("Kalat")
+                        || selectedCity.equals("Khuzdar") || selectedCity.equals("Gwadar") || selectedCity.equals("Dera Ismail Khan")
+                        || selectedCity.equals("Muslim Bagh") || selectedCity.equals("Mastung")) {
+
+
+                    ArrayAdapter adapterPickup = ArrayAdapter.createFromResource(OrderBookingScreen.this,
+                            R.array.to_quetta, R.layout.spinner_item);
+                    adapterPickup.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    sp_dropoff.setAdapter(adapterPickup);
+                }
+                //
 
                 if (selectedCity.equals("Select")) {
 
@@ -309,7 +322,8 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selectedCity = adapterView.getItemAtPosition(i).toString();
                 String picupCity = sp_pickup.getSelectedItem().toString();
-                if (selectedCity.equals("Quetta") && picupCity.equals("Karachi")) {
+
+                if ((selectedCity.equals("Quetta") && picupCity.equals("Karachi")) || (selectedCity.equals("Karachi") && picupCity.equals("Quetta"))) {
 
                     sp_cartype.setSelection(1);
                     ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
@@ -323,10 +337,10 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                     adapterSeatsForQuetyKarachi.setDropDownViewResource(R.layout.spinner_dropdown_item);
                     sp_seates.setAdapter(adapterSeatsForQuetyKarachi);
 
+                }
 
-
-
-                } else if (selectedCity.equals("Karachi") && picupCity.equals("Quetta")) {
+                //
+                else if ((selectedCity.equals("Quetta") && picupCity.equals("Dera Ismail Khan")) || (selectedCity.equals("Dera Ismail Khan") && picupCity.equals("Quetta"))) {
 
                     sp_cartype.setSelection(1);
                     ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
@@ -334,14 +348,85 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                     adapterCarType.setDropDownViewResource(R.layout.spinner_dropdown_item);
                     sp_cartype.setAdapter(adapterCarType);
 
-                    //setting seats
-                    ArrayAdapter adapterSeatsForQuetyKarachi = ArrayAdapter.createFromResource(OrderBookingScreen.this,
-                            R.array.seatesForQuetyKarachi, R.layout.spinner_item);
-                    adapterSeatsForQuetyKarachi.setDropDownViewResource(R.layout.spinner_dropdown_item);
-                    sp_seates.setAdapter(adapterSeatsForQuetyKarachi);
+                }
 
+                else if ((selectedCity.equals("Quetta") && picupCity.equals("Zhob")) || (selectedCity.equals("Zhob") && picupCity.equals("Quetta"))) {
 
-                } else {
+                    sp_cartype.setSelection(1);
+                    ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
+                            R.array.carttype_when_quetta, R.layout.spinner_item);
+                    adapterCarType.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    sp_cartype.setAdapter(adapterCarType);
+
+                }
+                else if ((selectedCity.equals("Quetta") && picupCity.equals("Qila Saifullah")) || (selectedCity.equals("Qila Saifullah") && picupCity.equals("Quetta"))) {
+
+                    sp_cartype.setSelection(1);
+                    ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
+                            R.array.carttype_when_quetta, R.layout.spinner_item);
+                    adapterCarType.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    sp_cartype.setAdapter(adapterCarType);
+
+                }
+                else if ((selectedCity.equals("Quetta") && picupCity.equals("Loralai")) || (selectedCity.equals("Loralai") && picupCity.equals("Quetta"))) {
+
+                    sp_cartype.setSelection(1);
+                    ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
+                            R.array.carttype_when_quetta, R.layout.spinner_item);
+                    adapterCarType.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    sp_cartype.setAdapter(adapterCarType);
+
+                }
+
+                else if ((selectedCity.equals("Quetta") && picupCity.equals("Chaman")) || (selectedCity.equals("Chaman") && picupCity.equals("Quetta"))) {
+
+                    sp_cartype.setSelection(1);
+                    ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
+                            R.array.carttype_when_quetta, R.layout.spinner_item);
+                    adapterCarType.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    sp_cartype.setAdapter(adapterCarType);
+
+                }
+                else if ((selectedCity.equals("Quetta") && picupCity.equals("Kalat")) || (selectedCity.equals("Kalat") && picupCity.equals("Quetta"))) {
+
+                    sp_cartype.setSelection(1);
+                    ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
+                            R.array.carttype_when_quetta, R.layout.spinner_item);
+                    adapterCarType.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    sp_cartype.setAdapter(adapterCarType);
+
+                }
+                else if ((selectedCity.equals("Quetta") && picupCity.equals("Khuzdar")) || (selectedCity.equals("Khuzdar") && picupCity.equals("Quetta"))) {
+
+                    sp_cartype.setSelection(1);
+                    ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
+                            R.array.carttype_when_quetta, R.layout.spinner_item);
+                    adapterCarType.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    sp_cartype.setAdapter(adapterCarType);
+
+                }
+                else if ((selectedCity.equals("Quetta") && picupCity.equals("Gwadar")) || (selectedCity.equals("Gwadar") && picupCity.equals("Quetta"))) {
+
+                    sp_cartype.setSelection(1);
+                    ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
+                            R.array.carttype_when_quetta, R.layout.spinner_item);
+                    adapterCarType.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    sp_cartype.setAdapter(adapterCarType);
+
+                }
+                else if ((selectedCity.equals("Quetta") && picupCity.equals("Muslim Bagh")) || (selectedCity.equals("Muslim Bagh") && picupCity.equals("Quetta"))) {
+
+                    sp_cartype.setSelection(1);
+                    ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
+                            R.array.carttype_when_quetta, R.layout.spinner_item);
+                    adapterCarType.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    sp_cartype.setAdapter(adapterCarType);
+
+                }
+
+                //
+
+                else {
 
                     sp_cartype.setSelection(1);
                     ArrayAdapter adapterCarType = ArrayAdapter.createFromResource(OrderBookingScreen.this,
@@ -608,12 +693,12 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                 String spDropoff = sp_dropoff.getSelectedItem().toString();
                 String spCartype = sp_cartype.getSelectedItem().toString();
                 String spSeates = sp_seates.getSelectedItem().toString();
-              //  String spStimeSlots = sp_time_slots.getSelectedItem().toString();
+                //  String spStimeSlots = sp_time_slots.getSelectedItem().toString();
 
 
-             /*   if (et_detail_pickup.length()==0){
+                /*   if (et_detail_pickup.length()==0){
 
-                   *//* et_detail_pickup.setError("Should not empty");
+                 *//* et_detail_pickup.setError("Should not empty");
                     et_detail_pickup.startAnimation(animShake);*//*
 
                    detailPickup = "";
@@ -706,7 +791,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                         Log.e("TAG", "the to city: " + spDropoff);
                         Log.e("TAG", "the car type: " + spCartype);
                         Log.e("TAG", "the seats: " + spSeates);
-                       // Log.e("TAG", "the Time Slot " + spStimeSlots);
+                        // Log.e("TAG", "the Time Slot " + spStimeSlots);
 
 
                         String textToSend = "User Full Name: " + fullname
@@ -1002,7 +1087,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                 String mFareEstimation  = FareEstimation(pickup_city, destination_city, car_type, seats);
 
 
-                 orderBookingService(user_id, pickup_lat, pickup_lng, pickup_detail, destination_lat, destination_lng, destination_detail, pickup_city, destination_city, car_type, seats, mFareEstimation, timeSlots, mSelectedDate);
+                orderBookingService(user_id, pickup_lat, pickup_lng, pickup_detail, destination_lat, destination_lng, destination_detail, pickup_city, destination_city, car_type, seats, mFareEstimation, timeSlots, mSelectedDate);
 
             }
         });
@@ -1043,7 +1128,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 //preventing user to select future date
-               view.setEnabled(true);
+                view.setEnabled(true);
 
                 updateLabel();
             }
@@ -1079,10 +1164,10 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
 
 
         if(mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-                mDrawerLayout.closeDrawer(Gravity.LEFT); //CLOSE Nav Drawer!
-            }else{
-                exitScreenAlert();
-            }
+            mDrawerLayout.closeDrawer(Gravity.LEFT); //CLOSE Nav Drawer!
+        }else{
+            exitScreenAlert();
+        }
     }
 
     private String FareEstimation(String spPickCity, String spDropoff, String spCartype, String spSeates){
@@ -1135,8 +1220,6 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
         //***********************************************************************************//
         //************Karachi to Quetta and Quetta to Karachi Rates *********************//
         //**********************************************************************************//
-
-
         //business class
         if (spPickCity.equals("Karachi") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
             mEstimateFare = "Rs.3500";
@@ -1196,7 +1279,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
             mEstimateFare = "Rs.5000";
         }
         if (spPickCity.equals("Lahore") && spDropoff.equals("Islamabad") && spCartype.equals("Business") && spSeates.equals("3")){
-            mEstimateFare = "Rs.7500";
+            mEstimateFare = "Rs.8000";
         }
         if (spPickCity.equals("Islamabad") && spDropoff.equals("Lahore") && spCartype.equals("Business") && spSeates.equals("1")){
             mEstimateFare = "Rs.2500";
@@ -1205,7 +1288,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
             mEstimateFare = "Rs.5000";
         }
         if (spPickCity.equals("Islamabad") && spDropoff.equals("Lahore") && spCartype.equals("Business") && spSeates.equals("3")){
-            mEstimateFare = "Rs.7500";
+            mEstimateFare = "Rs.8000";
         }
 
         //***********************************************************************************//
@@ -1220,7 +1303,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
             mEstimateFare = "Rs.2600";
         }
         if (spPickCity.equals("Lahore") && spDropoff.equals("Faisalabad") && spCartype.equals("Economy") && spSeates.equals("3")){
-            mEstimateFare = "Rs.3900";
+            mEstimateFare = "Rs.4000";
         }
         if (spPickCity.equals("Faisalabad") && spDropoff.equals("Lahore") && spCartype.equals("Economy") && spSeates.equals("1")){
             mEstimateFare = "Rs.1300";
@@ -1229,7 +1312,7 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
             mEstimateFare = "Rs.2600";
         }
         if (spPickCity.equals("Faisalabad") && spDropoff.equals("Lahore") && spCartype.equals("Economy") && spSeates.equals("3")){
-            mEstimateFare = "Rs.3900";
+            mEstimateFare = "Rs.4000";
         }
 
         //business class
@@ -1252,56 +1335,364 @@ public class OrderBookingScreen extends BaseActvitvityForDrawer {
             mEstimateFare = "Rs.4500";
         }
 
+
+        //***********************************************************************************//
+        //************Loralai to Quetta and Quetta to Loralai Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Loralai") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1500";
+        }
+        if (spPickCity.equals("Loralai") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Loralai") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.4500";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Loralai") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1500";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Loralai") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Loralai") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.4500";
+        }
+
+        //***********************************************************************************//
+        //************Zhob to Quetta and Quetta to Zhob Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Zhob") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1500";
+        }
+        if (spPickCity.equals("Zhob") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Zhob") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.4500";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Zhob") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1500";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Zhob") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Zhob") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.4500";
+        }
+
+
+        //***********************************************************************************//
+        //************Qila Saifullah to Quetta and Quetta to Qila Saifullah Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Qila Saifullah") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1500";
+        }
+        if (spPickCity.equals("Qila Saifullah") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Qila Saifullah") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.4500";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Qila Saifullah") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1500";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Qila Saifullah") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Qila Saifullah") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.4500";
+        }
+
+        //***********************************************************************************//
+        //************Chaman to Quetta and Quetta to Chaman Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Chaman") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1300";
+        }
+        if (spPickCity.equals("Chaman") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.2600";
+        }
+        if (spPickCity.equals("Chaman") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.3900";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Chaman") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1300";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Chaman") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.2600";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Chaman") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.3900";
+        }
+
+        //***********************************************************************************//
+        //************Kalat to Quetta and Quetta to Kalat Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Kalat") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1700";
+        }
+        if (spPickCity.equals("Kalat") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3400";
+        }
+        if (spPickCity.equals("Kalat") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.5000";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Kalat") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1700";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Kalat") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3400";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Kalat") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.5000";
+        }
+
+        //***********************************************************************************//
+        //************Khuzdar to Quetta and Quetta to Khuzdar Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Khuzdar") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Khuzdar") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.6000";
+        }
+        if (spPickCity.equals("Khuzdar") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.9000";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Khuzdar") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Khuzdar") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.6000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Khuzdar") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.9000";
+        }
+
+        //***********************************************************************************//
+        //************Gwadar to Quetta and Quetta to Gwadar Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Gwadar") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.5000";
+        }
+        if (spPickCity.equals("Gwadar") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.10000";
+        }
+        if (spPickCity.equals("Gwadar") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.15000";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Gwadar") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.5000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Gwadar") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.10000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Gwadar") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.15000";
+        }
+
+        //***********************************************************************************//
+        //************Dera Ismail Khan to Quetta and Quetta to Dera Ismail Khan Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Dera Ismail Khan") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Dera Ismail Khan") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.6000";
+        }
+        if (spPickCity.equals("Dera Ismail Khan") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.9000";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Dera Ismail Khan") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Dera Ismail Khan") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.6000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Dera Ismail Khan") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.9000";
+        }
+
+        //***********************************************************************************//
+        //************Muslim Baghto Quetta and Quetta to Muslim Bagh Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Muslim Bagh") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1500";
+        }
+        if (spPickCity.equals("Muslim Bagh") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Muslim Bagh") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.4500";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Muslim Bagh") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1500";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Muslim Bagh") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.3000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Muslim Bagh") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.4500";
+        }
+
+        //***********************************************************************************//
+        //************Mastung to Quetta and Quetta to Mastung Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Mastung") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.800";
+        }
+        if (spPickCity.equals("Mastung") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.1600";
+        }
+        if (spPickCity.equals("Mastung") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.2400";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Mastung") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.800";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Mastung") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.1600";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Mastung") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.2400";
+        }
+        //Economy class
+
+        if (spPickCity.equals("Mastung") && spDropoff.equals("Quetta") && spCartype.equals("Economy") && spSeates.equals("1")){
+            mEstimateFare = "Rs.600";
+        }
+        if (spPickCity.equals("Mastung") && spDropoff.equals("Quetta") && spCartype.equals("Economy") && spSeates.equals("2")){
+            mEstimateFare = "Rs.1200";
+        }
+        if (spPickCity.equals("Mastung") && spDropoff.equals("Quetta") && spCartype.equals("Economy") && spSeates.equals("3")){
+            mEstimateFare = "Rs.1800";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Mastung") && spCartype.equals("Economy") && spSeates.equals("1")){
+            mEstimateFare = "Rs.600";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Mastung") && spCartype.equals("Economy") && spSeates.equals("2")){
+            mEstimateFare = "Rs.1200";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Mastung") && spCartype.equals("Economy") && spSeates.equals("3")){
+            mEstimateFare = "Rs.1800";
+        }
+
+        //***********************************************************************************//
+        //************Kuchlak to Quetta and Quetta to Kuchlak Rates *********************//
+        //**********************************************************************************//
+        //business class
+        if (spPickCity.equals("Kuchlak") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1000";
+        }
+        if (spPickCity.equals("Kuchlak") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.2000";
+        }
+        if (spPickCity.equals("Kuchlak") && spDropoff.equals("Quetta") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.3000";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Kuchlak") && spCartype.equals("Business") && spSeates.equals("1")){
+            mEstimateFare = "Rs.1000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Kuchlak") && spCartype.equals("Business") && spSeates.equals("2")){
+            mEstimateFare = "Rs.2000";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Kuchlak") && spCartype.equals("Business") && spSeates.equals("3")){
+            mEstimateFare = "Rs.3000";
+        }
+        //Economy class
+
+        if (spPickCity.equals("Kuchlak") && spDropoff.equals("Quetta") && spCartype.equals("Economy") && spSeates.equals("1")){
+            mEstimateFare = "Rs.700";
+        }
+        if (spPickCity.equals("Kuchlak") && spDropoff.equals("Quetta") && spCartype.equals("Economy") && spSeates.equals("2")){
+            mEstimateFare = "Rs.1400";
+        }
+        if (spPickCity.equals("Kuchlak") && spDropoff.equals("Quetta") && spCartype.equals("Economy") && spSeates.equals("3")){
+            mEstimateFare = "Rs.2000";
+        }
+
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Kuchlak") && spCartype.equals("Economy") && spSeates.equals("1")){
+            mEstimateFare = "Rs.700";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Kuchlak") && spCartype.equals("Economy") && spSeates.equals("2")){
+            mEstimateFare = "Rs.1400";
+        }
+        if (spPickCity.equals("Quetta") && spDropoff.equals("Kuchlak") && spCartype.equals("Economy") && spSeates.equals("3")){
+            mEstimateFare = "Rs.2000";
+        }
+
         return mEstimateFare;
     }
 
-   public boolean isTimeGrater(String dateTime){
+    public boolean isTimeGrater(String dateTime){
 
 
-       Log.e("TAG", "Selected Time and date is: " + dateTime);
+        Log.e("TAG", "Selected Time and date is: " + dateTime);
 
         boolean isTimeGrater = false;
-       long currentMillis = System.currentTimeMillis();
-       long availableMillis = 0;
+        long currentMillis = System.currentTimeMillis();
+        long availableMillis = 0;
 
-       String stringDateTime = dateTime;
-       SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm aa");
-       Date d = null;
-       try {
-           d = format.parse(stringDateTime);
-           availableMillis = d.getTime();
-           Log.e("TAG", "the order datetime in milli: " + availableMillis);
+        String stringDateTime = dateTime;
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm aa");
+        Date d = null;
+        try {
+            d = format.parse(stringDateTime);
+            availableMillis = d.getTime();
+            Log.e("TAG", "the order datetime in milli: " + availableMillis);
 
-       } catch (ParseException e) {
-           e.printStackTrace();
-       }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-       Log.e("TAG", "the order time is: " + currentMillis);
-       Log.e("TAG", "the order datetime is: " + availableMillis);
+        Log.e("TAG", "the order time is: " + currentMillis);
+        Log.e("TAG", "the order datetime is: " + availableMillis);
 
-       if (availableMillis>currentMillis){
+        if (availableMillis>currentMillis){
 
-           isTimeGrater = true;
-       }
-       else {
-           isTimeGrater = false;
-       }
+            isTimeGrater = true;
+        }
+        else {
+            isTimeGrater = false;
+        }
 
-       return  isTimeGrater;
+        return  isTimeGrater;
 
-   }
+    }
 
 
-   private void openSpinerForPickupCity(){
+    private void openSpinerForPickupCity(){
 
-       ll_pickup_city.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        ll_pickup_city.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-               sp_pickup.performClick();
-           }
-       });
-   }
+                sp_pickup.performClick();
+            }
+        });
+    }
 
 
     private void openSpinerForDestinationCity(){

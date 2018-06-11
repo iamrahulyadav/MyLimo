@@ -12,6 +12,18 @@
         <item>Hyderabad</item>
         <item>Quetta</item>
         <item>Faisalabad</item>
+        <item>Loralai</item>
+        <item>Zhop</item>
+        <item>Killa Saifullah</item>
+        <item>Chaman</item>
+        <item>Kuchlak</item>
+        <item>Kalat</item>
+        <item>Khuzdar</item>
+        <item>Gwadar</item>
+        <item>Dera Ismail Khan</item>
+        <item>Muslim Bagh</item>
+        <item>Mastung</item>
+
     </string-array>
 
     <string-array name="emptyselect">
@@ -56,8 +68,23 @@
     <string-array name="from_quetta">
         <item>Select</item>
         <item>Karachi</item>
+        <item>Loralai</item>
+        <item>Zhob</item>
+        <item>Qila Saifullah</item>
+        <item>Chaman</item>
+        <item>Kuchlak</item>
+        <item>Kalat</item>
+        <item>Khuzdar</item>
+        <item>Gwadar</item>
+        <item>Dera Ismail Khan</item>
+        <item>Muslim Bagh</item>
+        <item>Mastung</item>
     </string-array>
 
+    <string-array name="to_quetta">
+        <item>Select</item>
+        <item>Quetta</item>
+    </string-array>
 
     <string-array name="cartype">
         <item>Select</item>
